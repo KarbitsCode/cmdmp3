@@ -8,12 +8,12 @@
 // See https://jiml.us/license2022.htm
 //
 // To build, use the following MinGW command:
-//   gcc  cmdmp3win.c -lwinmm  -mwindows -o cmdmp3win.exe
-
+//   gcc cmdmp3win.c -lwinmm -lshlwapi -mwindows -o cmdmp3win.exe
 
 #include <windows.h>
 #include <string.h>
 #include <stdio.h>
+#include <shlwapi.h>
 
 char msg[256];
 char *title="cmdmp3win v2.20";
@@ -25,14 +25,17 @@ int WINAPI WinMain( HINSTANCE hInstance,
 					HINSTANCE hPrevInstance, 
 					LPSTR lpCmdLine, 
 					int nCmdShow ) {
-
+    
     char cmdBuff[MAX_PATH + 64];
     char *arg;
-
+    
     arg=parse_arg(lpCmdLine);
-   
+    TCHAR szFileName[MAX_PATH];
+    GetModuleFileName(NULL, szFileName, MAX_PATH);
+    PathStripPath(szFileName);
+    
     if(arg==NULL) {
-        sprintf(msg,"Syntax:\n\tcmdmp3win \"c:\\path to file\\file.mp3\"\n");
+        sprintf(msg,"Syntax:\n\t%s \"c:\\path to file\\file.mp3\"\n",szFileName);
         MessageBox(NULL,msg,title,MB_OK);
         return 1;
     }
@@ -40,7 +43,9 @@ int WINAPI WinMain( HINSTANCE hInstance,
     sprintf(cmdBuff,"Open \"%s\" Type MPEGVideo Alias theMP3",arg);
     sendCommand(cmdBuff);
 
+    printf("Playing: \"%s\"\n",arg);
     sendCommand("Play theMP3 Wait");
+    printf("Done\n");
     return 0;
 }
 
