@@ -8,7 +8,7 @@
 // See https://jiml.us/license2022.htm
 //
 // To build, use the following MinGW command:
-//   gcc cmdmp3.c -lwinmm -o cmdmp3.exe
+//   gcc cmdmp3.c -lwinmm -o cmdmp3.exe -v
 
 #include <windows.h>
 #include <stdio.h>
@@ -18,9 +18,9 @@ void sendCommand(char *);
 
 int main(int argc,char **argv) {
     char cmdBuff[MAX_PATH + 64];
-    printf("cmdmp3 v2.10\n");
-    printf("Command-line MP3 player\n");
-    printf("by Jim Lawless - https://jiml.us\n\n");
+    //printf("cmdmp3 v2.10\n");
+    //printf("Command-line MP3 player\n");
+    //printf("by Jim Lawless - https://jiml.us\n\n");
     
     if(argc<2) {
         fprintf(stderr,"Syntax:\n\t%s \"c:\\path to file\\file.mp3\"\n",argv[0]);
@@ -31,7 +31,7 @@ int main(int argc,char **argv) {
     sprintf(cmdBuff,"Open \"%s\" Type MPEGVideo Alias theMP3",argv[1]);
     sendCommand(cmdBuff);
     
-    printf("Playing: \"%s\"\n",argv[1]);
+    printf("Playing: %s\n",argv[1]);
     sendCommand("Play theMP3 Wait");
     printf("Done\n");
     return 0;

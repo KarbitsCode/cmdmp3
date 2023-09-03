@@ -8,7 +8,7 @@
 // See https://jiml.us/license2022.htm
 //
 // To build, use the following MinGW command:
-//   gcc cmdmp3win.c -lwinmm -lshlwapi -mwindows -o cmdmp3win.exe
+//   gcc cmdmp3win.c -lwinmm -lshlwapi -mwindows -o cmdmp3win.exe -v
 
 #include <windows.h>
 #include <string.h>
