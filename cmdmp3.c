@@ -33,7 +33,6 @@ int main(int argc,char **argv) {
     
     printf("Playing: %s\n",argv[1]);
     sendCommand("Play theMP3 Wait");
-    printf("Done\n");
     return 0;
 }
 

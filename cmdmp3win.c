@@ -45,7 +45,6 @@ int WINAPI WinMain( HINSTANCE hInstance,
 
     printf("Playing: \"%s\"\n",arg);
     sendCommand("Play theMP3 Wait");
-    printf("Done\n");
     return 0;
 }
 
