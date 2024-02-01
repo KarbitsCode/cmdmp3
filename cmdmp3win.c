@@ -7,8 +7,9 @@
 // jimbo@radiks.net  https://jiml.us
 // See https://jiml.us/license2022.htm
 //
-// To build, use the following MinGW command:
-//   gcc cmdmp3win.c -lwinmm -lshlwapi -mwindows -o cmdmp3win.exe -v
+// To build, use the following command:
+//   gcc cmdmp3win.c -lwinmm -lshlwapi -luser32 -mwindows -o cmdmp3win.exe -v
+//   cl cmdmp3win.c user32.lib winmm.lib shlwapi.lib /Fe:cmdmp3win-vs.exe
 
 #include <windows.h>
 #include <string.h>

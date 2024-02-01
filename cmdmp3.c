@@ -7,8 +7,9 @@
 // jimbo@radiks.net  https://jiml.us
 // See https://jiml.us/license2022.htm
 //
-// To build, use the following MinGW command:
+// To build, use the following command:
 //   gcc cmdmp3.c -lwinmm -o cmdmp3.exe -v
+//   cl cmdmp3.c winmm.lib /Fe:cmdmp3-vs.exe
 
 #include <windows.h>
 #include <stdio.h>
