@@ -3,7 +3,7 @@
 // (console-mode version)
 //
 // License: MIT / X11
-// Copyright (c) 2009, 2015, 2022 by James K. Lawless
+// Copyright (c) 2009, 2015, 2022-2024 by James K. Lawless
 // jimbo@radiks.net  https://jiml.us
 // See https://jiml.us/license2022.htm
 //
@@ -19,12 +19,12 @@ void sendCommand(char *);
 
 int main(int argc,char **argv) {
     char cmdBuff[MAX_PATH + 64];
-    //printf("cmdmp3 v2.10\n");
+    //printf("cmdmp3 v2.30\n");
     //printf("Command-line MP3 player\n");
-    //printf("by Jim Lawless - https://jiml.us\n\n");
+    //printf("by Jim Lawless - https://jiml.us\n");
     
     if(argc<2) {
-        fprintf(stderr,"Syntax:\n\t%s \"c:\\path to file\\file.mp3\"\n",argv[0]);
+        fprintf(stderr,"Syntax:\n\t%s \"c:\\path to file\\file.mp3\"\n\t   or\n\t%s \"url\"\n\n",argv[0],argv[0]);
         return 1;
     }
     sendCommand("Close All");

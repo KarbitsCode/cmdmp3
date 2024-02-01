@@ -3,13 +3,13 @@
 // (window-mode version)
 //
 // License: MIT / X11
-// Copyright (c) 2009, 2015, 2022 by James K. Lawless
+// Copyright (c) 2009, 2015, 2022-2024 by James K. Lawless
 // jimbo@radiks.net  https://jiml.us
 // See https://jiml.us/license2022.htm
 //
 // To build, use the following command:
 //   gcc cmdmp3win.c -lwinmm -lshlwapi -luser32 -mwindows -o cmdmp3win.exe -v
-//   cl cmdmp3win.c user32.lib winmm.lib shlwapi.lib /Fe:cmdmp3win-vs.exe
+//   cl cmdmp3win.c winmm.lib shlwapi.lib user32.lib /Fe:cmdmp3win-vs.exe
 
 #include <windows.h>
 #include <string.h>
@@ -17,7 +17,7 @@
 #include <shlwapi.h>
 
 char msg[256];
-char *title="cmdmp3win v2.20";
+char *title="cmdmp3win v2.30";
 
 char *parse_arg(char *);
 void sendCommand(char *);
@@ -36,7 +36,7 @@ int WINAPI WinMain( HINSTANCE hInstance,
     PathStripPath(szFileName);
     
     if(arg==NULL) {
-        sprintf(msg,"Syntax:\n\t%s \"c:\\path to file\\file.mp3\"\n",szFileName);
+        sprintf(msg,"Syntax:\n\t%s \"c:\\path to file\\file.mp3\"\n\t   or\n\t%s \"url\"\n\n",szFileName,szFileName);
         MessageBox(NULL,msg,title,MB_OK);
         return 1;
     }
